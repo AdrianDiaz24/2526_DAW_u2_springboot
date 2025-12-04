@@ -17,4 +17,11 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag PruebaDocker:$(date +%s)
 
-    
+    - name: Login to Docker
+    - uses: docker/login-action@v1
+      with: 
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+   
+        
